@@ -1,0 +1,113 @@
+@import "../../style.scss";
+
+.rightBar {
+
+  @include themify($themes) {
+    flex: 3;
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px);
+    overflow: scroll;
+    background-color: themed("bgSoft");
+
+    @include mobile{
+      display: none;
+    }
+    @include tablet{
+      display: none;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .container {
+      flex-direction: column;
+      background: themed("bgMed");
+      padding: 40px;
+      border-radius: 40px;
+      
+
+      .item {
+        -webkit-box-shadow: 0px 0px 15px 1px themed("shadow");
+        -moz-box-shadow: 0px 0px 15px 1px themed("shadow");
+        box-shadow: 0px 5px 30px 0px themed("shadow");
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: themed("bg");
+        border-radius: 20px;
+
+        span {
+          color: gray;
+        }
+
+        .user {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin: 20px 0px;
+
+          .userInfo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+
+            img {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+
+            .online {
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              background-color: limegreen;
+              position: absolute;
+              top: 0;
+              left: 30px;
+            }
+
+            p {
+              color: themed("textColorSoft");
+              width: 155px;
+            }
+
+            span {
+              font-weight: 500;
+              color: themed("textColor");
+            }
+          }
+
+          .buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            button {
+              border: 1px solid themed("bg");
+              padding: 5px 10px;
+              cursor: pointer;
+              border-radius: 10px;
+
+
+              &:first-child {
+                background-color: themed("logo");
+                color: themed("bg");
+              }
+
+              &:last-child {
+                background-color: themed("bg");
+                color: themed("logo");
+                border: 1px solid themed("logo");
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
